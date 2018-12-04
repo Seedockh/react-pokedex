@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     this.getAll();
-    console.log(this.state.pokemons);
+    console.log(this.state.pokemons[54]);
     return (
       <div>
         <h2>Pokédex !</h2>
@@ -32,8 +32,24 @@ class App extends Component {
             { this.state.pokemons.map( (pkmn)=> {
               return (
                 <li key={pkmn.ndex}>
-                  {pkmn.ndex}<br/>
-                  {pkmn.nom}
+                  {pkmn.nom}<br/>
+                  <ul>Details :
+                    { Object.keys(pkmn).map( (key) => {
+                      if(key==='attaques') {
+                        return ( <li>Attaques :
+                                    <ul>{ pkmn[key].map( (atk)=> {
+                                       return Object.values(atk).map((v)=> v);
+                                    } )}</ul>
+                                </li>);
+                      } else {
+                        return (
+                          <li key={key}>{key} : {JSON.stringify(pkmn[key])}
+                          </li>
+                        )
+                      }
+                    }) }
+                    <a href="'.{url}.'"></a>
+                  </ul>
                 </li>
               )})
             }
