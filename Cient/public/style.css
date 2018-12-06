@@ -1,0 +1,225 @@
+body {
+  margin: 0;
+  background-image:radial-gradient(#d2d2d2 10px, #0c0c0c 330px);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  font-family: 'VT323', monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+  margin-top: 2em;
+}
+  header img {
+    width: 500px;
+  }
+
+.content {
+  width: 800px;
+  height: 500px;
+  align-self: center;
+}
+.content:after {
+  position: absolute;
+  content: '';
+  top: 205px;
+  left: auto;
+  width: 800px;
+  height: 500px;
+  background-image: url("pokedex2.png");
+  background-position: center;
+  background-size: 800px;
+  background-repeat: space;
+  pointer-events: none;
+}
+
+.pokemondatas {
+  position: relative;
+  left: 9em;
+  top: 4em;
+  width: 578px;
+  background: rgba(166, 0, 0,0.1);
+}
+
+@media only screen and (max-width: 1200px) {
+  .pokemondatas {
+    left: 9.1em;
+    top: 4.5em;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .pokemondatas {
+    left: 9.3em;
+    top: 4.7em;
+  }
+}
+
+.identifiers {
+  width: 578px;
+  height: 376px;
+  overflow: scroll;
+  border: 0;
+}
+.identifiers::-webkit-scrollbar {
+    display: none;
+}
+
+.pokepicture img {
+  width: 30px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  footer #typingText {
+       width: 500px;
+       height: 55px;
+       font-size: 25px;
+       font-family: 'VT323', monospace;
+       border: 0;
+       text-align: center;
+       overFlow: auto;
+       color: #FFFFFF;
+       outline: none;
+       resize: none;
+       padding: 5px;
+       background: none;
+  }
+
+  @keyframes animatedBackground {
+  	from { background-position: 100% 0; }
+  	to { background-position: 0 0; }
+  }
+  @keyframes animatedBackground2 {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  footer .lokhlasstop {
+    width: 300px;
+	  height: 100px;
+    background-image: url('bgtop.png');
+    background-position: 100px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground2 15s linear infinite;
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+  }
+  footer .lokhlassbot {
+    width: 300px;
+    height: 400px;
+    background-image: url('bgbot.png');
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 20s linear infinite;
+    z-index: 0;
+    position: absolute;
+    left: 2em;
+    top: 42%;
+  }
+
+.collection {
+  padding: 3.3em 0 0 0;
+}
+
+.pokeid {
+  position: relative;
+  top: -41px;
+  left: -22px;
+  color: black;
+  background: rgba(255, 205, 4, 0.3);
+  padding: 0.2em 0.5em;
+  border-radius: 0 0 5px 0;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  box-shadow: 0px 0px 8px grey;
+}
+
+.collection-item {
+  height: 70px;
+}
+
+.collection-item table {
+  border-collapse: collapse;
+}
+.collection-item table tbody tr {
+  border: 0;
+  height: 50%;
+}
+.collection-item table tbody tr td {
+  text-align: justify;
+  width: 100px;
+}
+
+  /**** TYPES ****/
+.type {
+    color: white;
+    padding: 0 0.3em;
+    margin: 0 0.2em;
+    border-radius: 3px;
+}
+.plant {
+  background: rgb(105, 194, 61);
+}
+.poison {
+  background: rgb(146, 58, 146);
+}
+.fire {
+  background: rgb(237, 109, 18);
+}
+.flying {
+  background: rgb(142, 111, 235);
+}
+.water {
+  background: rgb(69, 120, 237);
+}
+.bug {
+  background: rgb(151, 165, 29);
+}
+.normal {
+  background: rgb(156, 156, 99);
+}
+.electric {
+  background: rgb(246, 201, 19);
+}
+.ground {
+  background: rgb(219, 181, 77);
+}
+.fighting {
+  background: rgb(174, 42, 36);
+}
+.psychic {
+  background: rgb(247, 54, 112);
+}
+.rock {
+  background: rgb(164, 143, 50);
+}
+.steel {
+  background: rgb(160, 160, 192);
+}
+.ice {
+  background: rgb(126, 206, 206);
+}
+.ghost {
+  background: rgb(100, 78, 136);
+}
+.dragon {
+  background: rgb(94, 29, 247);
+}
