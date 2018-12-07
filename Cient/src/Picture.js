@@ -10,16 +10,19 @@ class Picture extends Component {
   }
 
   componentDidMount() {
-    if (this.props.data!==null) {
       if (this.props.data.nom==="???") {
-        this.setState({ unknown: "unknown" })
+        if (this.props.next===undefined) {
+          this.setState({ unknown: "unknown", url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.data.ndex+".png" })
+        } else {
+          this.setState({ url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.next+".png" })
+        }
+      } else if (this.props.next!==undefined) {
+        this.setState({
+        url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.next+".png" });
+      } else {
+        this.setState({
+          url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.data.ndex+".png" });
       }
-      this.setState({
-        url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.data.ndex+".png" });
-    } else if (this.props.next!==null) {
-      this.setState({
-        url: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+this.props.next.ndex+".png" });
-    }
   }
 
   render() {

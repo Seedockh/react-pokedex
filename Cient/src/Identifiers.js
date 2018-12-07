@@ -4,14 +4,14 @@ import Type from './Type';
 import Infos from './Infos';
 import Attacks from './Attacks';
 import Remarks from './Remarks';
-import Search from './Search';
+import SearchInput from './SearchInput';
 
 class Identifiers extends Component {
   constructor(props){
     super(props);
     this.state = ({
-      previous: null,
-      next: null,
+      previous: this.switchPokemon(false,this.props.data[0].ndex),
+      next: this.switchPokemon(true,this.props.data[0].ndex),
     })
 
     this.displayIdentifiers = this.displayIdentifiers.bind(this);
@@ -30,27 +30,11 @@ class Identifiers extends Component {
     return ndex;
   }
 
-  componentDidUpdate() {
-    if (this.props.data[0]!==undefined) {
+  componentWillUpdate() {
       this.setState({
         previous: this.switchPokemon(false,this.props.data[0].ndex),
         next: this.switchPokemon(true,this.props.data[0].ndex),
       });
-    }
-  }
-
-  shouldComponentUpdate(nextProps,nextState) {
-    if (this.props.data !== nextProps.data) {
-      return true;
-    }
-    if ((this.state.next !== nextState.next) || (this.state.previous !== nextState.previous)) {
-      this.setState({
-        next: nextState.next,
-        previous: nextState.previous,
-      })
-      return true;
-    }
-    return false;
   }
 
   displayIdentifiers(isSolo) {
@@ -87,26 +71,7 @@ class Identifiers extends Component {
           <img src="/unknown.png" alt="default" />
         </div>
         <Remarks data={rmqdefault}/>
-        <Search />
-        <div className="identifiers collection">
-          {this.props.data.map( p => {
-            return (
-              <a href={"/"+p.ndex} className="collection-item" key={p.ndex}>
-                <table>
-                  <tbody><tr>
-                    <td className="identifiersleft">
-                      <span className="pokeid">{p.ndex}</span>
-                      <Picture data={p} isThumb={false}/> ::: {p.nom}
-                    </td><td>
-                      <Type type1={p.type1} type2={p.type2} />
-                    </td>
-                  </tr></tbody>
-                </table>
-              </a>
-              )
-            })
-          }
-        </div>
+        <SearchInput data={this.props.data}/>
       </div>
       );
     }
