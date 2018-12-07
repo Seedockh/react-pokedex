@@ -4,15 +4,30 @@ import Header from './Header';
 import Footer from './Footer';
 
 class App extends Component {
-  render() {
-    let pokeid;
+  constructor(props) {
+    super(props);
+    this.state = ({
+      pokeid: false,
+    })
+  }
+
+  componentWillMount() {
     if(window.location.href.match(/\/[0-9]+/)) {
-      pokeid = window.location.href.match(/\/[0-9]+/)[0].substr(1);
-    } else { pokeid = false; }
+      this.setState({
+        pokeid : window.location.href.match(/\/[0-9]+/)[0].substr(1),
+      });
+    } else {
+      this.setState({
+        pokeid : false,
+      });
+    }
+  }
+
+  render() {
     return (
       <div className="container">
         <Header />
-        <Pokedex pokeid={pokeid}/>
+        <Pokedex pokeid={this.state.pokeid}/>
         <Footer />
       </div>
     )
