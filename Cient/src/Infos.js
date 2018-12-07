@@ -15,6 +15,7 @@ class Infos extends Component {
       if (useful.indexOf(k)!==-1) {
         pkm[k] = this.props.data[k]
       }
+      return pkm;
     })
     this.setState({
       data: pkm,

@@ -14,9 +14,6 @@ body {
   justify-content: center;
 }
 
-a {
-}
-
 header {
   height: 130px;
   display: flex;
@@ -91,6 +88,42 @@ header {
     display: none;
 }
 
+  .collectionwrapper form {
+    width: 20px;
+    display: flex;
+    margin: 0;
+  }
+    .collectionwrapper form input {
+      position: absolute;
+      left: 0px;
+      top: 0;
+      color: black;
+      background: rgba(255,255,255,0.8) !important;
+      z-index: 1;
+      height: 30px;
+      width: 320px !important;
+      padding-left: 1em !important;
+      border-bottom: none !important;
+    }
+    input:focus, input:active {
+      border-bottom: none !important;
+    }
+    ::-webkit-input-placeholder {
+      color: grey;
+    }
+
+  .imglistdefault {
+
+  }
+    .imglistdefault img {
+      position: absolute;
+      top: 17px;
+      right: -43px;
+      width: 78px;
+      background-color: rgba(106, 106, 106,0.4);
+      border-radius: 50%;
+      z-index:3;
+    }
 
 .pokeid {
   position: relative;
@@ -107,16 +140,22 @@ header {
 
 .poketitles {
   position: absolute;
-  top: -285px;
-  left: 30px;
+  top: -280px;
+  left: 0;
   z-index:50;
-  color: #ffe7ce;
+  height: 43px;
+  color: black;
+  background: rgba(255,255,255,0.8);
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  justify-content: space-around;
+  width: 330px;
+  z-index: 1;
 }
   .poketitles .types {
-    padding-top: 1.5em;
+    padding-top: 0.9em;
+  }
+  .poketitles h5 {
+    margin: 0.4em 0 0 0;
   }
 
 .pokepicture img {
@@ -182,6 +221,45 @@ header {
       width: 180px;
       background: none;
     }
+
+  .pokeremark {
+    position: absolute;
+    bottom: 156px;
+    left: -112px;
+    width: 102px;
+    height: 193px;
+    color: white;
+    padding-left: 0.6em;
+    overflow: scroll;
+  }
+  .pokeremark::-webkit-scrollbar {
+      display: none;
+  }
+  .collectionwrapper .pokeremark {
+      bottom: 135px;
+  }
+    .pokeremark h6 {
+      font-size: 16px;
+      margin-top: 0.3em;
+      text-decoration: underline;
+    }
+    .pokeremark p {
+      font-size: 12px;
+      word-wrap: break-word;
+      width: 90px;
+      z-index: 50;
+    }
+      .nextpokepic span img {
+        position: absolute;
+        right: 0;
+        top: -260px;
+        right: -40px;
+        width: 70px;
+        background-color: rgba(106, 106, 106,1);
+        border-radius: 50%;
+        z-index: 4;
+      }
+
 
   .selectedPokemon {
     margin-left: -1.4em;
@@ -333,6 +411,10 @@ footer {
   background: rgb(94, 29, 247);
 }
 
+/**********************************/
+/***        RESPONSIVE          ***/
+/**********************************/
+
 @media only screen and (max-width: 1200px) {
   .pokemondatas {
     left: 9.3em;
@@ -345,6 +427,18 @@ footer {
   .selectedPokemon {
     margin-left: -0.7em;
     margin-top: -0.7em;
+  }
+  .nextpokepic span img {
+    top: -266px;
+    right: -41px;
+  }
+  .poketitles {
+    top: -283px;
+    left: 0;
+  }
+  .imglistdefault img {
+    top: 19px;
+    right: -43px;
   }
 }
 
@@ -361,4 +455,11 @@ footer {
     margin-top: 20.2em;
     margin-left: -2em;
   }
-}
+  .nextpokepic span img {
+    top: -266px;
+    right: -45px;
+  }
+  .imglistdefault img {
+    top: 15px;
+    right: -48px;
+  }

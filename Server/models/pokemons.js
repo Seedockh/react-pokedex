@@ -44,6 +44,10 @@ class pokemonModel {
     //res.send(`<pre>${pokemon}</pre>`);
   }
 
+/*** SEARCHING ***/
+  static search(str,req,res) {
+    
+  }
 }
 
 module.exports = pokemonModel;

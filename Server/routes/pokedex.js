@@ -13,6 +13,11 @@ function pokedex(router) {
     pokemonModel.getOne(req.params.idpoke,req,res);
   });
 
+/*** SEARCH POKEMON(S) ***/
+  router.get("/:strsearch", async (req,res)=>{
+    pokemonModel.search(req.params.strsearch,req,res);
+  });
+
 }
 
 module.exports = pokedex;
